@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :movies
+
+  # destroy any reviews if their user is destroyed
+  has_many :reviews, dependent: :destroy
 end
